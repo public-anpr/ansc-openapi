@@ -1,0 +1,1 @@
+Documentazione oggetti condivisi ANSC

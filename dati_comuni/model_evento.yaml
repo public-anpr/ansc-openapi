@@ -1,0 +1,542 @@
+openapi: 3.0.0
+info:
+  title: Data model per evento
+  version: '1.0.0 beta'
+paths:
+  "/":
+    get:
+      description: Metodo di default
+      responses:
+        "200":
+          description: ok
+components:
+  schemas:
+    ModelEvento:
+      properties:
+        id: 
+          type: string
+          description: Id univoco assegnato dal sistema. (per uso interno)
+          example: '9423'
+        idTipoEvento: 
+          type: string
+          description: Id del tipo evento. (decodifica ANSC 1)
+          example: 5
+        idtipocontenuto: 
+          description: Tipologia di evento (Atto, annotazione, trascrizione) (decodifica ANSC 2)
+          type: string
+          example: '1'          
+        idUsecase: 
+          type: string
+          description: Id del caso d'uso cui si riferisce l'evento. (decodifica ANSC 3)
+          example: 1170
+        descrizioneCasoUso: 
+          type: string
+          description: Descrizione del caso d'uso cui si riferisce l'evento.
+          example: 'Morte su dichiarazione del cittadino'
+        stato: 
+          type: string
+          description: Stato attuale dell'atto.
+          example: CONFERMATO
+        dataDecorrenza:
+          type: string
+          format: date
+          description: Data decorrenza atto
+          example: '2022-03-22'
+        dataformazione: 
+          type: string
+          format: date
+          description: Data formazione dell'atto.
+          example: '2020-01-23'
+        ora: 
+          type: string
+          description: Ora formazione atto.
+          example: '1'
+        minuto: 
+          type: string
+          description: Minuto formazione atto.
+          example: '11'        
+        annoAtto: 
+          type: string
+          description: Anno dell'atto.
+          example: '2020'
+        meseAtto: 
+          type: string
+          description: Mese dell'atto.
+          example: '1'
+        giornoAtto: 
+          type: string
+          description: Giorno dell'atto.
+          example: '23'
+        numeroatto: 
+          type: string
+          description: Numero dell'atto assegnato dal comune.
+          example: '9423'
+        registro: 
+          type: string
+          description: Registro dell'atto.
+          example: '1'
+        parte: 
+          type: string
+          description: Parte dell'atto.
+          example: '1'
+        serie: 
+          type: string
+          description: Serie dell'atto.
+          example: '1'
+        tipoDichiarante: 
+          type: string
+          description: Tipo del dichiarante (decodifica ANSC 4)
+          example: 'M'        
+        ausilioInterprete: 
+          type: string
+          description: Indica se e' stato necessario l'ausilio di un interprete.
+          example: 'no'
+        conTestimoni: 
+          type: string
+          description: Indica se la dichiarazione e' stata resa con testimoni.
+          example: 'no'
+        nomeComuneRegistrazione: 
+          type: string
+          description: Nome del comune presso il quale e' stata resa la dichiarazione.
+          example: 'CESENA'
+        siglaProvinciaRegistrazione: 
+          type: string
+          description: Sigla della provincia del comune presso il quale e' stata resa la dichiarazoione.
+          example: 'FC'
+        noteRitardo: 
+          type: string
+          description: Note sul ritardo nella dichiarazione
+          example: 'Esempio di note'          
+        motivoAnnullamento: 
+          type: string
+          description: Motivo annullamento atto.
+          example: 'Motivo di annullamento'
+        operatore: 
+          type: string
+          description: Codice fiscale dell'operatore che ha redatto l'atto.
+          example: 'ABCDEF99A11H501A'
+        operatoreNome: 
+          type: string
+          description: Nome dell'operatore che ha redatto l'atto.
+          example: 'MARIO'
+        operatoreCognome: 
+          type: string
+          description: Cognome dell'operatore che ha redatto l'atto.
+          example: 'ROSSI'
+        sceltaCognome: 
+          type: string
+          description: TODO
+          example: ''
+        tipoConsenso: 
+          type: string
+          description: TODO
+          example: ''
+        allegati: 
+          description: Allegati all'atto
+          type: array
+          items:
+            $ref: '#/components/schemas/ModelAllegatoRif'            
+        enteDichiarante:
+          description: Ente dichiarante - TODO (Trascrizione?)
+          $ref: '#/components/schemas/ModelEnteDichiarante'
+        ufficialeStatoCivile:
+          description: Ufficiale di Stato Civile responsabile dell'atto
+          $ref: '#/components/schemas/ModelSoggetto'
+        soggettoNascita:
+          description: Soggetto in caso di atto di nascita
+          $ref: '#/components/schemas/ModelSoggetto'
+        soggettoMorte:
+          description: Soggetto in caso di atto di morte
+          $ref: '#/components/schemas/ModelSoggetto'
+        madre:
+          description: Soggetto che contiene i dati della madre
+          $ref: '#/components/schemas/ModelSoggetto'
+        padre:
+          description: Soggetto che contiene i dati del padre
+          $ref: '#/components/schemas/ModelSoggetto'
+        dichiarante:
+          description: Soggetto che contiene i dati del dichiarante
+          $ref: '#/components/schemas/ModelSoggetto'
+        testimone1:
+          description: Soggetto che contiene i dati dell'eventuale primo testimone
+          $ref: '#/components/schemas/ModelSoggetto'         
+        testimone2:
+          description: Soggetto che contiene i dati dell'eventuale secondo testimone
+          $ref: '#/components/schemas/ModelSoggetto'          
+        interprete:
+          description: Soggetto che contiene i dati dell'eventuale interprete
+          $ref: '#/components/schemas/ModelSoggetto'          
+        riconoscimentoMadre:
+          description: Atto di riconoscimento da parte della madre
+          $ref: '#/components/schemas/ModelAttoCollegato'
+        riconoscimentoPadre:
+          description: Atto di riconoscimento da parte del padre
+          $ref: '#/components/schemas/ModelAttoCollegato'
+        consenso:
+          description: Atto di consenso
+          $ref: '#/components/schemas/ModelAttoCollegato'
+        consensoMadre:
+          description: Atto di consenso da parte della madre
+          $ref: '#/components/schemas/ModelAttoCollegato'
+        consensoPadre:
+          description: Atto di consenso da parte del padre
+          $ref: '#/components/schemas/ModelAttoCollegato'          
+        tribunale:
+          description: Eventuale atto del tribunale
+          $ref: '#/components/schemas/ModelAttoCollegato'          
+        eventoCollegato:
+          description: Eventuale evento collegato
+          $ref: '#/components/schemas/ModelAttoCollegato'
+        composizioneCompleta:
+          type: string
+          description: Composizione completa dell'atto
+          example: "L'anno 2020 addì 8 del mese di 1 alle ore 12 e minuti 1 nel(1) la Casa Comunale avanti a me CESENA ANSC Ufficiale dello Stato Civile del Comune di CESENA (2) Per delega avuta\ne' comparsa cognomeMadre nomeMadre nata in ROMA lì 1977-11-12 (3) residente in ROCCA CANTERANO\n"
+    ModelAttoCollegato:
+      properties:
+        id: 
+          type: string
+          description: Identificativo dell'atto collegato.
+          example: ''
+        nomeComuneRegistrazione: 
+          type: string
+          description: Nome del comune in cui e' stato registrato l'atto.
+          example: 'TORCHIAROLO'
+        siglaProvinciaRegistrazione: 
+          type: string
+          description: Sigla della provincia in cui e' stato registrato l'atto.
+          example: 'BR'
+        ente: 
+          type: string
+          description: Ente che ha redatto l'atto.
+          example: 'tribunale'
+        idtipocontenuto: 
+          type: string
+          description: Tipologia di evento (Atto, annotazione, trascrizione) (decodifica ANSC 2)
+          example: '1'
+        numeroAtto:
+          type: string
+          description: Numero assegato dal comune all'atto
+          example: '9423'
+        annoAtto: 
+          type: string
+          description: Anno in cui e' stato redatto l'atto.
+          example: '2020'
+        dataAtto: 
+          type: string
+          description: Data dell'atto
+          example: '2020-02-28'
+        tipologia: 
+          type: string
+          description: Tipologia dell'atto collegato.
+          example: 'Nascita'
+        estremi: 
+          type: string
+          description: Sono i dati di registrazione dell'atto (parte, registro e serie) concatenati in una stringa
+          example: '1 1 1'
+    ModelSoggetto:
+      properties:
+        id: 
+          type: string
+          description: Identificativoidentificativo nello stato del soggetto in ANSC (Stato Civile)
+          example: '7203'
+        idsoggettoanpr: 
+          type: string
+          description: identificativo del soggetto in ANPR (Anagrafica)
+          example: '1234'
+        codiceFiscale: 
+          type: string
+          description: codice fiscale
+          example: 'PNUFDN87C13F103O'
+        cognome: 
+          type: string
+          description: Cognome
+          example: 'CognomeNato'
+        nome: 
+          type: string
+          description: Nome
+          example: 'UNO'
+        sesso: 
+          type: string
+          description: Sesso
+          example: 'f'
+        descrizioneSesso: 
+          type: string
+          description: descrizione del sesso
+          example: 'femminile'    
+        datanascita: 
+          type: string
+          description: Data Di Nascita
+          example: '2020-01-01'          
+        nomeComuneNascita: 
+          type: string
+          description: descrizione del Comune di Nascita
+          example: 'ROMA'          
+        siglaProvinciaNascita: 
+          type: string
+          description: Sigla della provincia di Nascita
+          example: 'RM'
+        nomeStatoNascita: 
+          type: string
+          description: Nome dello Stato di Nascita
+          example: 'ITALIA'          
+        nomeComuneResidenza: 
+          type: string
+          description: descrizione del Comune di Residenza
+          example: 'AFFILE'
+        siglaProvinciaResidenza: 
+          type: string
+          description: Sigla della provincia di Residenza
+          example: 'RM'          
+        nomeStatoResidenza: 
+          type: string
+          description: Nome dello Stato di Residenza
+          example: 'ITALIA'
+        descrizionestatocivile: 
+          type: string
+          description: Descrizione dello stato civile
+          example: 'Coniugato/a'
+        tipoImpedimento: 
+          type: string
+          description: L'id del tipo impedimento (decodifica ANSC 6)
+          example: ''
+        genere: 
+          type: string
+          description: descrizione del genere (decodifica ANSC 5)
+          example: 'a'
+        nazionalita: 
+          type: string
+          description: Nazionalita
+          example: 'ITALIANA'
+        note: 
+          type: string
+          description: Campo generico di note
+          example: ''                    
+        datiDiNascita:
+          $ref: '#/components/schemas/ModelDatiDiNascita'          
+        datiRinvenuto:
+          $ref: '#/components/schemas/ModelDatiRinvenuto'
+        datiDiMorte:
+          $ref: '#/components/schemas/ModelDatiDiMorte'          
+        datiDichiarante:
+          $ref: '#/components/schemas/ModelDatiDichiarante'          
+        documentoRiconoscimento:
+          description: Descrizione del documento di Riconoscimento
+          $ref: '#/components/schemas/ModelDocumentoRiconoscimento'          
+    ModelEnteDichiarante:
+      properties:
+        tipologiaTrascrizione: 
+          type: string
+          description: Id tipo trascrizione (decodica ANSC 7)
+          example: '1'    
+        ruoloEnteDichiarante: 
+          type: string
+          description: Ruolo dell'ente dichiarante.
+          example: 'tribunale'
+        nomeEnte: 
+          type: string
+          description: Nome dell'ente dichiarante.
+          example: 'tribunale'          
+        nomeComuneEnte: 
+          type: string
+          description: Nome del comune dell'ente dichiarante.
+          example: 'TORCHIAROLO'
+        siglaProvinciaEnte: 
+          type: string
+          description: Sigla della provincia dell'ente dichiarante.
+          example: 'BR'
+        indirizzoEnte: 
+          type: string
+          description: Indirizzo dell'ente dichiarante.
+          example: 'Via aa'          
+        dataTrascrizione: 
+          type: string
+          description: Data in cui e' avvenuta la trascrizione.
+          example: '2020-01-08'
+        annoTrascrizione: 
+          type: string
+          description: Anno in cui e' avvenuta la trascrizione.
+          example: '2020'
+        meseTrascrizione: 
+          type: string
+          description: Mese in cui e' avvenuta la trascrizione.
+          example: '01'          
+        giornoTrascrizione: 
+          type: string
+          description: Giorno in cui e' avvenuta la trascrizione.
+          example: '08'
+        estremiDocumento: 
+          type: string
+          description: Codice identificativo del documento. TODO ??
+          example: 'A1342'
+    ModelAllegatoRif:
+      properties:
+        id: 
+          type: string
+          description: Identificativo dell'allegato.
+          example: '7762' 
+        hashAllegato: 
+          type: string
+          description: Hash Code dell'allegato.
+          example: '9424937f3ff137865b01952e25ba8794'
+        descrizione: 
+          type: string
+          description: Tipo di documento allegato.
+          example: 'DICHIARAZIONE DI NASCITA'
+    ModelDatiDiNascita:
+      properties:
+        luogoFiliazione: 
+          type: string
+          description: Luogo in cui e' avvenuto l'evento Nascita.
+          example: 'Ospedale'
+        annoNascita: 
+          type: string
+          description: Anno in cui e' avvenuto l'evento Nascita.
+          example: '2010'
+        meseNascita: 
+          type: string
+          description: Mese in cui e' avvenuto l'evento Nascita.
+          example: '02'            
+        giornoNascita: 
+          type: string
+          description: Giorno in cui e' avvenuto l'evento Nascita.
+          example: '26'
+        oraNascita: 
+          type: string
+          description: Ora in cui e' avvenuto l'evento Nascita.
+          example: '03'
+        minutoNascita: 
+          type: string
+          description: Minuto in cui e' avvenuto l'evento Nascita.
+          example: '23'          
+        natoMorto: 
+          type: string
+          description: Valore per identificare se il neonato e' nato morto, vale SI o NO
+          example: 'no'
+        numeroGemelli: 
+          type: string
+          description: Velore per identificare il numero totale dei gemelli nati.
+          example: '2'
+        partoGemellare: 
+          type: string
+          description: 'Valore per identificare se si tratta di un parto gemellare - Valori: SI/NO.'
+          example: 'no'
+        progressivoGemello: 
+          type: string
+          description: Identificativo numerico del gemello.
+          example: '1'          
+    ModelDocumentoRiconoscimento:
+      properties:
+        numeroDocumento: 
+          type: string
+          description: Numero identificativo del documento di riconoscimento.
+          example: 'AB32652AO'
+        tipologiaDocumento: 
+          type: string
+          description: Tipologia di documento utilizzato per il riconoscimento.
+          example: "Carta d'identità"
+        dataScadenza: 
+          type: string
+          description: Data di scadenza del documento.
+          example: '2020-01-08'
+        rilasciatoDa: 
+          type: string
+          description: Informazione sull'ente che ha rilasciato il documento di riconoscimento.
+          example: 'Comune di Cesena'
+        dataRilascio: 
+          type: string
+          description: Data di rilascio del dcoumento di riconoscimento.
+          example: '2017-01-08'
+    ModelDatiRinvenuto:
+      properties:
+        giornoRinvenimento: 
+          type: string
+          format: date
+          description: Giorno in cui e' avvenuto il rinvenimento.
+          example: '2022-03-12'      
+        oraRinvenimento: 
+          type: string
+          description: Ora in cui e' avvenuto il rinvenimento.
+          example: '18'      
+        minutoRinvenimento: 
+          type: string
+          description: Minuto in cui e' avvenuto il rinvenimento.
+          example: '35'
+        responsabileAffido: 
+          type: string
+          description: Responsabile dell'ente a cui viene affidato il rinvenuto.
+          example: 'Mario Rossi'
+        luogoRinvenimento: 
+          type: string
+          description: Luogo in cui e' avvenuto il rinvenimento.
+          example: 'Casa'
+        responsabileRinvenimento: 
+          type: string
+          description: Figura responsabile del rinvenimento.
+          example: 'Responsabile Ambulanza' 
+        enteAffido: 
+          type: string
+          description: Ente a cui viene affidato il rinvenuto.
+          example: 'Mortuaria Ospedale'
+        etaPresunta: 
+          type: string
+          description: Eta presunta del rinvenuto.
+          example: '78'
+        note: 
+          type: string
+          description: Note relative al rinvenimento. 
+          example: ''           
+    ModelDatiDichiarante:
+      properties:
+        ruolo: 
+          type: string
+          example: ''
+        procura: 
+          type: string
+          example: ''
+    ModelDatiDiMorte:
+      properties:
+        nomeComuneMorte: 
+          type: string
+          description: Nome del comune in cui e' avvenuto il decesso.
+          example: 'CESENA'          
+        siglaProvinciaMorte: 
+          type: string
+          description: Sigla della provincia del decesso.
+          example: 'FC'
+        nomeStatoMorte: 
+          type: string
+          description: Nazione in cui e' avvebuto il decesso.
+          example: 'ITALIA'
+        luogoMorte: 
+          type: string
+          description: Luogo in cui e' avvenuto il decesso.
+          example: 'Casa'
+        indirizzoMorte: 
+          type: string
+          description: Indirizzo del decesso.
+          example: 'Via Cattaneo, 15'          
+        dataMorte: 
+          type: string
+          format: date
+          description: Data del decesso.
+          example: '2020-01-08'       
+        annoMorte: 
+          type: string
+          description: Anno in cui e' avvenuto il decesso.
+          example: '2020'          
+        meseMorte: 
+          type: string
+          description: Mese in cui e' avvenuto il decesso.
+          example: '01'
+        giornoMorte: 
+          type: string
+          description: Giorno in cui e' avvenuto il decesso.
+          example: '08'    
+        oraMorte: 
+          type: string
+          description: Ora in cui e' avvenuto il decesso.
+          example: '11'          
+        minutoMorte: 
+          type: string
+          description: Minuto in cui e' avvenuto il decesso.
+          example: '17'          

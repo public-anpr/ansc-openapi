@@ -52,6 +52,10 @@ components:
           type: string
           description: Identificativo dell'operazione attribuito da ANSC
           example: "432432423423"    
+        idEsito:
+          type: number
+          description: Esito dell'operazione
+          example: 0             
     AnscRequest:
       description: Richiesta ANSC da specializzare
       properties:
@@ -61,7 +65,7 @@ components:
       description: Risposta ANSC da specializzare
       properties:
         testataRisposta:
-          $ref: '#/components/schemas/TestataRisposta'       
+          $ref: '#/components/schemas/TestataRisposta'  
         errors:
           type: array
           items:

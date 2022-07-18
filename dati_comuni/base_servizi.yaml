@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Schema dati open api generali per servizi ANSC
-  version: '1.0.0 beta'
+  version: '1.0.1 beta'
 paths:
   "/":
     get:

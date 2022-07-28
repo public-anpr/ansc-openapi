@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Data model per evento
-  version: '1.0.1 beta'
+  version: '1.0.2 beta'
 paths:
   "/":
     get:
@@ -1058,6 +1058,10 @@ components:
               format: date
               description: Data di ultimo avvistamento
               example: '2022-06-24'
+            tipoScomparsa:
+              type: string
+              description: Tipo della scomparsa (decodifica 59) 1/Assenza, 2/Morte presunta, 3/Scomparsa
+              example: "1"
             ultimoLuogo:
               $ref: '#/components/schemas/ModelLuogo'
             sentenzaMortePresunta:

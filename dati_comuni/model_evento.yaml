@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
   title: Data model per evento
-  version: '1.2.1'
+  version: '1.3.1'
 paths:
   "/":
     get:
@@ -86,9 +86,9 @@ components:
           example: 'ROSSI'
         redattoNellaCasaComunale:
           type: boolean
-          description: Indica se l'evento √® stato redatto nella casa comunale
+          description: Indica se l'evento Ë stato redatto nella casa comunale
           example: true
-        luogoRedazione: # Se l'evento non √® stato redatto nella casa comunale
+        luogoRedazione: # Se l'evento non Ë stato redatto nella casa comunale
           $ref: '#/components/schemas/ModelLuogo'
         idComuneRegistrazione: 
           type: string
@@ -166,7 +166,7 @@ components:
           items:
             $ref: '#/components/schemas/ModelAllegatoRif'   
         intestatari: 
-          description: Intestatari dell'atto (uno o pi√π in base al registro)
+          description: Intestatari dell'atto (uno o pi˘ in base al registro)
           type: array
           items:
             $ref: '#/components/schemas/ModelSoggetto' 
@@ -256,7 +256,7 @@ components:
         composizioneCompleta:
           type: string
           description: Composizione completa dell'atto
-          example: "L'anno 2020 add√¨ 8 del mese di 1 alle ore 12 e minuti 1 nel(1) la Casa Comunale avanti a me CESENA ANSC Ufficiale dello Stato Civile del Comune di CESENA (2) Per delega avuta\ne' comparsa cognomeMadre nomeMadre nata in ROMA l√¨ 1977-11-12 (3) residente in ROCCA CANTERANO\n"
+          example: "L'anno 2020 addÏ 8 del mese di 1 alle ore 12 e minuti 1 nel(1) la Casa Comunale avanti a me CESENA ANSC Ufficiale dello Stato Civile del Comune di CESENA (2) Per delega avuta\ne' comparsa cognomeMadre nomeMadre nata in ROMA lÏ 1977-11-12 (3) residente in ROCCA CANTERANO\n"
     ModelAttoCollegato:
       properties:
         idAnsc: 
@@ -289,9 +289,9 @@ components:
           example: '1'
         redattoNellaCasaComunale:
           type: boolean
-          description: Indica se l'evento √® stato redatto nella casa comunale
+          description: Indica se l'evento Ë stato redatto nella casa comunale
           example: true
-        luogoRedazione: # Se l'evento non √® stato redatto nella casa comunale
+        luogoRedazione: # Se l'evento non Ë stato redatto nella casa comunale
           $ref: '#/components/schemas/ModelLuogo'
         numeroatto:
           type: string
@@ -470,11 +470,11 @@ components:
           example: ''   
         flagDichiarante:
           type: boolean
-          description: Indica se il soggetto √® il dichiarante
+          description: Indica se il soggetto Ë il dichiarante
           example: false
         flagComparente:
           type: boolean
-          description: Indica se il soggetto √® il comparente
+          description: Indica se il soggetto Ë il comparente
           example: false
         flagFirmatario:
           type: boolean
@@ -574,7 +574,7 @@ components:
           example: 'Ospedale'
         indirizzoEvento:
           type: string
-          description: Indirizzo in cui √® avvenuto l'evento
+          description: Indirizzo in cui Ë avvenuto l'evento
           example: 'Via Tal dei Tali 11'
         sceltaCognome: 
           type: string
@@ -631,7 +631,7 @@ components:
         tipologiaDocumento: 
           type: string
           description: Tipologia di documento utilizzato per il riconoscimento.
-          example: "Carta d'identit√†"
+          example: "Carta d'identit‡"
         dataScadenza: 
           type: string
           description: Data di scadenza del documento.
@@ -710,7 +710,7 @@ components:
           example: "sordomuto che sa leggere e scrivere"
         motivoImpedimentoScrittura:
           type: string
-          description: Necessario se "sordumuto che sa leggere ma non pu√≤ scrivere"
+          description: Necessario se "sordumuto che sa leggere ma non puÚ scrivere"
           example: "Descrizione impedimento"
     ModelDatiDiMorte:
       properties:
@@ -758,24 +758,24 @@ components:
         dataPresuntaMorteDa:
           type: string
           format: date
-          description: In caso di data presunta di morte √® l'inizio dell'intervallo
+          description: In caso di data presunta di morte Ë l'inizio dell'intervallo
           example: '2022-01-01'
         dataPresuntaMorteA:
           type: string
           format: date
-          description: In caso di data presunta di morte √® la fine dell'intervallo
+          description: In caso di data presunta di morte Ë la fine dell'intervallo
           example: '2022-03-31'
         oraPresuntaMorteDa:
           type: string
-          description: In caso di ora presunta di morte √® l'inizio dell'intervallo
+          description: In caso di ora presunta di morte Ë l'inizio dell'intervallo
           example: '10:00'
         oraPresuntaMorteA:
           type: string
-          description: In caso di ora presunta di morte √® la fine dell'intervallo
+          description: In caso di ora presunta di morte Ë la fine dell'intervallo
           example: '12:00'
         testoDataPresuntaMorte:
           type: string
-          description: In caso di data presunta di morte pu√≤ contenere un testo aggiuntivo
+          description: In caso di data presunta di morte puÚ contenere un testo aggiuntivo
           example: "Presumibilmente"
         annoMorte: 
           type: string
@@ -802,7 +802,7 @@ components:
       properties:
         nomeCampo: 
           type: string
-          description: Nome del campo su cui √® stata effettuata la variazione.
+          description: Nome del campo su cui Ë stata effettuata la variazione.
           example: 'cognome'          
         vecchioValore: 
           type: string
@@ -867,7 +867,7 @@ components:
         assensoReso:
           type: string
           deprecated: true
-          description: Indica a chi √® stato reso il consenso -- DEPRECATO -- Usare assensoAtto
+          description: Indica a chi Ë stato reso il consenso -- DEPRECATO -- Usare assensoAtto
           example: "Ufficiale di polizia"
         assensoAtto:
           $ref: '#/components/schemas/ModelAttoCollegato'
@@ -882,11 +882,11 @@ components:
           example: "2022-03-22"
         giaRiconosciutoDaPadre:
           type: boolean
-          description: Dice se figlio gi√† riconosciuto dal padre
+          description: Dice se figlio gi‡ riconosciuto dal padre
           example: false
         giaRiconosciutoDaMadre:
           type: boolean
-          description: Dice se figlio gi√† riconosciuto dalla madre
+          description: Dice se figlio gi‡ riconosciuto dalla madre
           example: false
         infraQuattordicenne:
           type: boolean
@@ -894,7 +894,7 @@ components:
           example: false
         preMorto:
           type: boolean
-          description: Il figlio riconosciuto √® deceduto prima del riconoscimento
+          description: Il figlio riconosciuto Ë deceduto prima del riconoscimento
           example:  false
         presenzaDiscendenti:
           type: boolean
@@ -914,7 +914,7 @@ components:
       properties:
         autorita:
           type: string
-          description: Autorit√† che ha rilasciato il certificato
+          description: Autorit‡ che ha rilasciato il certificato
           example: "Ospedale S. Tizio"
         data:
           type: string
@@ -925,7 +925,7 @@ components:
       properties:
         avvenuto:
           type: boolean
-          description: Il riconoscimento √® avvenuto oppure no?
+          description: Il riconoscimento Ë avvenuto oppure no?
           example: false
         autorizzazione: # Autorizzazione al riconoscimento
           $ref: '#/components/schemas/ModelEnteDichiarante'
@@ -1004,11 +1004,11 @@ components:
             description: Data di registrazione Negoziazione Assistita
           dichiarazioneRiconoscimento:
             type: string
-            description: specifica se √® atto pubblico o testamento 
+            description: specifica se Ë atto pubblico o testamento 
             example: "1"
           tipoRiconoscimento:
             type: string
-            description: SI/Figlio maggiorenne riconosciuto dal padre e gi√† riconosciuto dalla madre NO/Altri casi  
+            description: SI/Figlio maggiorenne riconosciuto dal padre e gi‡ riconosciuto dalla madre NO/Altri casi  
             example: "SI" 
           sceltaCognome:
             type: string
@@ -1086,7 +1086,7 @@ components:
             example: "1" 
           modalitaNome:
             type: string
-            description:  modalit√† attributi Soggetto
+            description:  modalit‡ attributi Soggetto
             example: "1"  
           dispositivo:
             type: string
@@ -1107,7 +1107,7 @@ components:
             example: "ABCD"     
 
     ModelTrascrizione:
-      description: classe base per le trascrizioni. Non √® mai usata da sola
+      description: classe base per le trascrizioni. Non Ë mai usata da sola
       properties:
           tipoDichiarazione:
             type: string
@@ -1116,15 +1116,15 @@ components:
           dataComunicazione:
             type: string
             format: date
-            description: In caso di tipo dichiarazione comunicazione scritta, √® la data della comunicazione
+            description: In caso di tipo dichiarazione comunicazione scritta, Ë la data della comunicazione
             example: "2022-04-22"
           testoLibero:
             type: string
             description: Testo libero per la trascrizione
             example: "Testo libero"
-          autoritaMittente: # Nella formula 193 l'autorit√† mittente √® quella che invia comunicazione al Comune di trascrizione di un atto emesso da qualcun altro
+          autoritaMittente: # Nella formula 193 l'autorit‡ mittente Ë quella che invia comunicazione al Comune di trascrizione di un atto emesso da qualcun altro
             $ref: '#/components/schemas/ModelEnteDichiarante'
-          atto: # Atto che pu√≤ essere usato sia per quelli esteri che per quelli nazionali
+          atto: # Atto che puÚ essere usato sia per quelli esteri che per quelli nazionali
             $ref: '#/components/schemas/ModelAttoEstero'
           attoEstero: # Eventuale atto proveniente dall'estero
             $ref: '#/components/schemas/ModelAttoEstero'
@@ -1147,7 +1147,7 @@ components:
               example: "1"
             specificaLuogoNascita:
               type: string
-              description: Se tipoLuogoNascita √® Altro qui √® indicata la denominazione
+              description: Se tipoLuogoNascita Ë Altro qui Ë indicata la denominazione
               example: Funivia
             descrizioneTipoRichiedente:
               type: string
@@ -1213,10 +1213,10 @@ components:
               $ref: '#/components/schemas/ModelAttoCollegato'
             riconoscimentoPaternoConSentenza:
               type: boolean
-              description: Il riconoscimento paterno √® avvenuto con sentenza?
+              description: Il riconoscimento paterno Ë avvenuto con sentenza?
               example: true
     ModelAscendente:
-      description: Un ascendente √® un avo in linea diretta
+      description: Un ascendente Ë un avo in linea diretta
       allOf:
       - $ref: '#/components/schemas/ModelSoggetto'
       - type: object
@@ -1235,13 +1235,13 @@ components:
       properties:
         intestatarioApolide:
           type: boolean
-          description: L'intestatario √® apolide
+          description: L'intestatario Ë apolide
           example: true
         parenteDiretto:
           $ref: '#/components/schemas/ModelAscendente'
-        indirizzoPostaAutorit√†:
+        indirizzoPostaAutorit‡:
           type: string
-          description: Indirizzo di posta dell'autorit√† competente
+          description: Indirizzo di posta dell'autorit‡ competente
           example: 'Sindaco - Piazza del Municipio 1'
         infoResidenzaBiennale:
           type: string
@@ -1254,11 +1254,11 @@ components:
           example: '2022-06-24'
         idUlterioreCittadinanza:
           type: string
-          description: Ulteriore cittadinanza di cui il soggetto √® in possesso 
+          description: Ulteriore cittadinanza di cui il soggetto Ë in possesso 
           example: '301'
         ulterioreCittadinanza:
           type: string
-          description: Ulteriore cittadinanza di cui il soggetto √® in possesso 
+          description: Ulteriore cittadinanza di cui il soggetto Ë in possesso 
           example: 'Ukraina'
         altraCittadinanzaRiacquistata:
           type: boolean
@@ -1282,7 +1282,7 @@ components:
           example: 'Testo libero'
         tempoAssunzione:
           type: string
-          description: Dice se l'assunzione √® gi√† avvenuta oppure avverr√† (decodifica ANSC_45) 
+          description: Dice se l'assunzione Ë gi‡ avvenuta oppure avverr‡ (decodifica ANSC_45) 
           example: "1"
         tipoResidenza:
           type: string
@@ -1291,19 +1291,19 @@ components:
         idProvinciaResidenza:
           type: string
           description: Provincia del comune in cui si intende prendere la residenza
-          example: "Forl√¨"
+          example: "ForlÏ"
         provinciaResidenza:
           type: string
           description: Sigla Provincia del comune in cui si intende prendere la residenza
           example: "FC"
         idComuneResidenza:
           type: string
-          description: ID Comune in cui si √® presa, o si intende prendere, la residenza
+          description: ID Comune in cui si Ë presa, o si intende prendere, la residenza
           example: "1223"
         comuneResidenza:
           type: string
-          description: Comune in cui si √® presa, o si intende prendere, la residenza
-          example: "Forl√¨"
+          description: Comune in cui si Ë presa, o si intende prendere, la residenza
+          example: "ForlÏ"
         dataInizioResidenza:
           type: string
           format: date
@@ -1321,9 +1321,9 @@ components:
           example: "Testo libero"
         presenzaInteressato:
           type: boolean
-          description: L'interessato √® presente o no?
+          description: L'interessato Ë presente o no?
           example: true
-        delegato: # Se l'interessato non √® presente questa √® la persona che si presenta all'USC
+        delegato: # Se l'interessato non Ë presente questa Ë la persona che si presenta all'USC
           $ref: '#/components/schemas/ModelSoggetto'
         estremiDecretoConferimento:
           type: string
@@ -1360,7 +1360,7 @@ components:
           example: '2022-06-24'  
         datoreEstero:
           type: boolean
-          description: Il datore di lavoro √® estero
+          description: Il datore di lavoro Ë estero
           example: true
         nomeDatoreLavoro:
           type: string
@@ -1397,7 +1397,7 @@ components:
             dataEfficaciaProvvedEstero:
               type: string
               format: date
-              description: Data di validit√† del provvedimento estero
+              description: Data di validit‡ del provvedimento estero
               example: '2022-03-22'
             numeroProtocollo:
               type: string
@@ -1461,7 +1461,7 @@ components:
           properties:
             ricevutaDaPrivatoCittadino:
               type: boolean
-              description: Indica se la notifica √® arrivata da un privato cittadino oppure dall'autorit√† giudiziaria
+              description: Indica se la notifica Ë arrivata da un privato cittadino oppure dall'autorit‡ giudiziaria
               example: true
             attoMatrimonio:
               $ref: '#/components/schemas/ModelAttoCollegato'
@@ -1519,7 +1519,11 @@ components:
           indirizzo: 
             type: string
             description: Indirizzo
-            example: 'Via Cattaneo, 15'          
+            example: 'Via Cattaneo, 15' 
+          numeroCivico: 
+            type: string
+            description: Numero civico
+            example: 'SNC'                      
 
     ModelMatrimonio:
       properties:
@@ -1552,7 +1556,7 @@ components:
           example: 'Mario'
         comprensioneSposo:
           type: string
-          description: Abilit√† di comprensione dello sposo (decodifica ANSC_32)
+          description: Abilit‡ di comprensione dello sposo (decodifica ANSC_32)
           example: "0"
         motivoImpedimentoScritturaSposo:
           type: string
@@ -1560,7 +1564,7 @@ components:
           example: "Motivo"
         comprensioneSposa:
           type: string
-          description: Abilit√† di comprensione della sposa (decodifica ANSC_32)
+          description: Abilit‡ di comprensione della sposa (decodifica ANSC_32)
           example: "0"
         motivoImpedimentoScritturaSposa:
           type: string
@@ -1582,7 +1586,7 @@ components:
           $ref: '#/components/schemas/ModelSoggetto'
         pubblicazioneInPiuComuni:
           type: boolean
-          description: Se il matrimonio ha avuto pubblicazioni in pi√π comuni
+          description: Se il matrimonio ha avuto pubblicazioni in pi˘ comuni
           example: true
         pubblicazione1:
           $ref: '#/components/schemas/ModelPubblicazione'
@@ -1622,7 +1626,7 @@ components:
           type: boolean
           description: Divieto temporaneo di nuove nozze
           example: false
-        autorizzazioneDifettoEta: # Provvedimento di autorizzazione nonostante il difetto di et√†
+        autorizzazioneDifettoEta: # Provvedimento di autorizzazione nonostante il difetto di et‡
           $ref: '#/components/schemas/ModelEnteDichiarante'
         autorizzazioneParentela: # Provedimento di autorizzazione nonostante l'impedimento di parentela
           $ref: '#/components/schemas/ModelEnteDichiarante'
@@ -1630,27 +1634,25 @@ components:
           $ref: '#/components/schemas/ModelEnteDichiarante'
         regimePatrimoniale: # Scelta del regime patrimoniale
           $ref: '#/components/schemas/ModelRegimePatrimoniale'
-        certificato: # Certificato che attesta l'impossibilit√† di recarsi nella casa comunale
-          $ref: '#/components/schemas/ModelEnteDichiarante'
         attoNascitaSposo:
           $ref: '#/components/schemas/ModelAttoCollegato'
         attoNascitaSposa:
           $ref: '#/components/schemas/ModelAttoCollegato'
         sposoInPericoloVita:
           type: boolean
-          description: Indica se lo sposo √® in pericolo imminente di vita
+          description: Indica se lo sposo Ë in pericolo imminente di vita
           example: false
         accertamentoVolontaSposo:
           type: string
-          description: Descrizione di come l'USC ha accertato la volont√† dello sposo in pericolo di vita
+          description: Descrizione di come l'USC ha accertato la volont‡ dello sposo in pericolo di vita
           example: "Accertamento"
         sposaInPericoloVita:
           type: boolean
-          description: Indica se la sposa √® in pericolo imminente di vita
+          description: Indica se la sposa Ë in pericolo imminente di vita
           example: false
         accertamentoVolontaSposa:
           type: string
-          description: Descrizione di come l'USC ha accertato la volont√† della sposa in pericolo di vita
+          description: Descrizione di come l'USC ha accertato la volont‡ della sposa in pericolo di vita
           example: "Accertamento"
         comuneDelegante:
           type: string
@@ -1682,14 +1684,14 @@ components:
           description: Chi dichiara l'avvenuto matrimonio con rito religioso (decodifica ANSC_52)
         riconoscimentoProle:
           type: boolean
-          description: Contestualmente al matrimonio c'√® il riconoscimento della prole?
+          description: Contestualmente al matrimonio c'Ë il riconoscimento della prole?
           example: false
         numeroFigli:
           type: string
           description: Numero di figli da riconoscere
           example: "1"
         figli:
-          description: Generalit√† dei figli in caso di riconoscimento contestuale al matrimonio
+          description: Generalit‡ dei figli in caso di riconoscimento contestuale al matrimonio
           type: array
           items:
             $ref: '#/components/schemas/ModelSoggetto'
@@ -1708,6 +1710,10 @@ components:
           type: boolean
           description: Altri Riti previsti dalle leggi 
           example: true  
+        soggettoImpedimento: # Eventuale motivo di impedimento con certificato
+          type: string
+          description: soggetto con impedimento
+          example: "1"
         impedimentoSposo: # Eventuale motivo di impedimento con certificato
           $ref: '#/components/schemas/ModelImpedimento'
         impedimentoSposa: # Eventuale motivo di impedimento con certificato
@@ -1747,7 +1753,7 @@ components:
           $ref: '#/components/schemas/ModelCertificatoUnioneCivile'
         comprensioneConiuge1:
           type: string
-          description: Abilit√† di comprensione del coniuge 1 (decodifica ANSC_32)
+          description: Abilit‡ di comprensione del coniuge 1 (decodifica ANSC_32)
           example: "0"
         motivoImpedimentoScritturaConiuge1:
           type: string
@@ -1755,7 +1761,7 @@ components:
           example: "Motivo"
         comprensioneConiuge2:
           type: string
-          description: Abilit√† di comprensione del coniuge 2 (decodifica ANSC_32)
+          description: Abilit‡ di comprensione del coniuge 2 (decodifica ANSC_32)
           example: "0"
         motivoImpedimentoScritturaConiuge2:
           type: string
@@ -1799,7 +1805,7 @@ components:
           type: string
           description: Tipo di impedimento (decodifica ANSC_48)
           example: "0"
-        autorizzazioneDifettoEta: # Provvedimento di autorizzazione nonostante il difetto di et√†
+        autorizzazioneDifettoEta: # Provvedimento di autorizzazione nonostante il difetto di et‡
           $ref: '#/components/schemas/ModelEnteDichiarante'
         autorizzazioneParentela: # Provedimento di autorizzazione nonostante l'impedimento di parentela
           $ref: '#/components/schemas/ModelEnteDichiarante'
@@ -1807,19 +1813,19 @@ components:
           $ref: '#/components/schemas/ModelRegimePatrimoniale'
         coniuge1InPericoloVita:
           type: boolean
-          description: Indica se il coniuge 1 √® in pericolo imminente di vita
+          description: Indica se il coniuge 1 Ë in pericolo imminente di vita
           example: false
         accertamentoVolontaConiuge1:
           type: string
-          description: Descrizione di come l'USC ha accertato la volont√† del coniuge 1 in pericolo di vita
+          description: Descrizione di come l'USC ha accertato la volont‡ del coniuge 1 in pericolo di vita
           example: "Accertamento"
         coniuge2InPericoloVita:
           type: boolean
-          description: Indica se il coniuge 2 √® in pericolo imminente di vita
+          description: Indica se il coniuge 2 Ë in pericolo imminente di vita
           example: false
         accertamentoVolontaConiuge2:
           type: string
-          description: Descrizione di come l'USC ha accertato la volont√† del coniuge 2 in pericolo di vita
+          description: Descrizione di come l'USC ha accertato la volont‡ del coniuge 2 in pericolo di vita
           example: "Accertamento"
         comuneDelegante:
           type: string
@@ -1846,6 +1852,10 @@ components:
           type: string
           description: Testo della richiesta di delega
           example: "Delega celebrazione unione civile"
+        soggettoImpedimentoCivile: # Eventuale motivo di impedimento con certificato
+          type: string
+          description: soggetto con impedimento
+          example: "1"
         impedimentoSposo: # Eventuale motivo di impedimento con certificato
           $ref: '#/components/schemas/ModelImpedimento'
         impedimentoSposa: # Eventuale motivo di impedimento con certificato
@@ -1863,7 +1873,7 @@ components:
         comuneCertificatoCostituzione:
           type: string
           description: Comune del certificato di richiesta di costituzione di Unione Civile
-          example: "Forl√¨"
+          example: "ForlÏ"
         nomeComuneCertificatoCostituzione:
           type: string
           description: Comune del certificato di richiesta di costituzione di Unione Civile
@@ -1911,7 +1921,7 @@ components:
           example: "1"
         attoNotarile:
           type: boolean
-          description: Se l'accordo √® stato stipulato tramite notaio
+          description: Se l'accordo Ë stato stipulato tramite notaio
           example: true
         nomeNotaio:
           type: string
@@ -1942,7 +1952,7 @@ components:
           type: string
           description: Tipo assistenza minori (decodifica ANSC_51) 
           example: "0"      
-        assistenteLegale: # Generalit√† del tutore o del procuratore speciale
+        assistenteLegale: # Generalit‡ del tutore o del procuratore speciale
           $ref: '#/components/schemas/ModelSoggetto'
         nominaAssistenteLegale: # Provvedimento di nomina del tutore/procuratore speciale
           $ref: '#/components/schemas/ModelEnteDichiarante'
@@ -1965,11 +1975,11 @@ components:
           description: Tipo di accordi di separazione (decodifica ANSC_53)
         presenzaConiuge1:
           type: boolean
-          description: Il coniuge 1 √® presente?
+          description: Il coniuge 1 Ë presente?
           example: true
         presenzaAvvocatoConiuge1:
           type: boolean
-          description: L'avvocato del coniuge 1 √® presente?
+          description: L'avvocato del coniuge 1 Ë presente?
           example: true
         avvocatoConiuge1:
           $ref: '#/components/schemas/ModelSoggetto'
@@ -1979,11 +1989,11 @@ components:
           example: "Rieti"
         presenzaConiuge2:
           type: boolean
-          description: Il coniuge 2 √® presente?
+          description: Il coniuge 2 Ë presente?
           example: true
         presenzaAvvocatoConiuge2:
           type: boolean
-          description: L'avvocato del coniuge 2 √® presente?
+          description: L'avvocato del coniuge 2 Ë presente?
           example: true
         avvocatoConiuge2:
           $ref: '#/components/schemas/ModelSoggetto'
@@ -1999,7 +2009,7 @@ components:
           example: false
         autoritaGiudiziaria:
           type: string
-          description: Nel caso esista un giudizio pendente questa √® l'autorit√† giudiziariarelativa
+          description: Nel caso esista un giudizio pendente questa Ë l'autorit‡ giudiziariarelativa
         dataConfermaAccordo:
           type: string
           format: date
@@ -2020,11 +2030,11 @@ components:
           description: Tipo di accordi di separazione in negaziazione assistita (decodifica ANSC_53)
         presenzaConiuge1:
           type: boolean
-          description: Il coniuge 1 √® presente?
+          description: Il coniuge 1 Ë presente?
           example: true
         presenzaAvvocatoConiuge1:
           type: boolean
-          description: L'avvocato del coniuge 1 √® presente?
+          description: L'avvocato del coniuge 1 Ë presente?
           example: true
         avvocatoConiuge1:
           $ref: '#/components/schemas/ModelSoggetto'
@@ -2034,11 +2044,11 @@ components:
           example: "Rieti"
         presenzaConiuge2:
           type: boolean
-          description: Il coniuge 2 √® presente?
+          description: Il coniuge 2 Ë presente?
           example: true
         presenzaAvvocatoConiuge2:
           type: boolean
-          description: L'avvocato del coniuge 2 √® presente?
+          description: L'avvocato del coniuge 2 Ë presente?
           example: true
         avvocatoConiuge2:
           $ref: '#/components/schemas/ModelSoggetto'
@@ -2100,7 +2110,7 @@ components:
           $ref: '#/components/schemas/ModelAttoCollegato'
         comprensioneConiuge1:
           type: string
-          description: Abilit√† di comprensione del coniuge 1 (decodifica ANSC_32)
+          description: Abilit‡ di comprensione del coniuge 1 (decodifica ANSC_32)
           example: "0"
         motivoImpedimentoScritturaConiuge1:
           type: string
@@ -2108,7 +2118,7 @@ components:
           example: "Motivo"
         comprensioneConiuge2:
           type: string
-          description: Abilit√† di comprensione del coniuge 2 (decodifica ANSC_32)
+          description: Abilit‡ di comprensione del coniuge 2 (decodifica ANSC_32)
           example: "0"
         motivoImpedimentoScritturaConiuge2:
           type: string
@@ -2125,19 +2135,22 @@ components:
           example: true
         altroMezzoDiComunicazione:
           type: string
-          description: Se non √® stata usata la raccomandata AR va indicato quale altro modo √® stato usato
+          description: Se non Ë stata usata la raccomandata AR va indicato quale altro modo Ë stato usato
           example: 'PEC'
         indirizzoComunicazione:
           type: string
-          description: Dove √® stata inviata la comunicazione (decodifica ANSC_56)
+          description: Dove Ë stata inviata la comunicazione (decodifica ANSC_56)
           example: "1"
         parteInGiudizioPendente:
           type: boolean
           description: I coniugi sono parte in causa in un giudizio relativo allo scioglimento?
           example: false
+        autoritaGiudiziaria:
+          type: string
+          description: Nel caso esista un giudizio pendente questa Ë l'autorit‡ giudiziariarelativa
         presenzaAvvocatoConiuge1:
           type: boolean
-          description: L'avvocato del coniuge 1 √® presente?
+          description: L'avvocato del coniuge 1 Ë presente?
           example: true
         avvocatoConiuge1:
           $ref: '#/components/schemas/ModelSoggetto'
@@ -2147,15 +2160,15 @@ components:
           example: "Rieti"
         presenzaConiuge1:
           type: boolean
-          description: Il coniuge 1 √® presente?
+          description: Il coniuge 1 Ë presente?
           example: true
         presenzaConiuge2:
           type: boolean
-          description: Il coniuge 2 √® presente?
+          description: Il coniuge 2 Ë presente?
           example: true
         presenzaAvvocatoConiuge2:
           type: boolean
-          description: L'avvocato del coniuge 2 √® presente?
+          description: L'avvocato del coniuge 2 Ë presente?
           example: true
         avvocatoConiuge2:
           $ref: '#/components/schemas/ModelSoggetto'
@@ -2195,6 +2208,10 @@ components:
           example: '2022-11-01'
     ModelImpedimento:
       properties:
-        certificato: # Certificato
-          $ref: '#/components/schemas/ModelEnteDichiarante'
+       certificato: # Certificato
+         $ref: '#/components/schemas/ModelEnteDichiarante'
+       motivazione: 
+         type: string
+         description: 'descrizione della motivazione'
+         example: "motivo del impedimento"
         
